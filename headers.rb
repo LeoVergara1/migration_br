@@ -23,7 +23,7 @@ class Helper
       "home_city",
       "my_favorite_category",
       "phone",
-      "my_preferences" #Contract all coloumns
+      "my_preferences", #Contract all coloumns
       #"my_preference_foods_drinks",
       #"my_preference_car",
       #"my_preference_beauty_and_wellness",
@@ -43,22 +43,23 @@ class Helper
       "mobile_sms_opt_in",
       "cliente_recurrente",
       "application_status",
-      "promotions_and_discounts_food_and_drinks",
-      "promotions_and_discounts_car",
-      "promotions_and_discounts_beauty_and_wellness",
-      "promotions_and_discounts_education_and_culture",
-      "promotions_and_discounts_electronics",
-      "promotions_and_discounts_events",
-      "promotions_and_discounts_home_and_furniture",
-      "promotions_and_discounts_jewelry",
-      "promotions_and_discounts_toys_games",
-      "promotions_and_discounts_marketplaces",
-      "promotions_and_discounts_pets",
-      "promotions_and_discounts_fashion_accessories",
-      "promotions_and_discounts_health_fitness",
-      "promotions_and_discounts_online_streaming_services",
-      "promotions_and_discounts_transport_and_travel_agencies",
-      "promotions_and_discounts_surprise_shops",
+      "promotions_and_discounts",
+      #"promotions_and_discounts_food_and_drinks",
+      #"promotions_and_discounts_car",
+      #"promotions_and_discounts_beauty_and_wellness",
+      #"promotions_and_discounts_education_and_culture",
+      #"promotions_and_discounts_electronics",
+      #"promotions_and_discounts_events",
+      #"promotions_and_discounts_home_and_furniture",
+      #"promotions_and_discounts_jewelry",
+      #"promotions_and_discounts_toys_games",
+      #"promotions_and_discounts_marketplaces",
+      #"promotions_and_discounts_pets",
+      #"promotions_and_discounts_fashion_accessories",
+      #"promotions_and_discounts_health_fitness",
+      #"promotions_and_discounts_online_streaming_services",
+      #"promotions_and_discounts_transport_and_travel_agencies",
+      #"promotions_and_discounts_surprise_shops",
       "approved_days",
       "approved_money",
       "job_title",
@@ -98,7 +99,7 @@ class Helper
       row["home_city"],
       row["my_favorite_category"],
       row["phone"],
-      calculate_my_preference(row)
+      calculate_my_preference(row),
       #row["my_preference_foods_drinks"],
       #row["my_preference_car"],
       #row["my_preference_beauty_and_wellness"],
@@ -118,22 +119,23 @@ class Helper
       row["mobile_sms_opt_in"],
       row["cliente_recurrente"],
       row["application_status"],
-      row["promotions_and_discounts_food_and_drinks"],
-      row["promotions_and_discounts_car"],
-      row["promotions_and_discounts_beauty_and_wellness"],
-      row["promotions_and_discounts_education_and_culture"],
-      row["promotions_and_discounts_electronics"],
-      row["promotions_and_discounts_events"],
-      row["promotions_and_discounts_home_and_furniture"],
-      row["promotions_and_discounts_jewelry"],
-      row["promotions_and_discounts_toys_games"],
-      row["promotions_and_discounts_marketplaces"],
-      row["promotions_and_discounts_pets"],
-      row["promotions_and_discounts_fashion_accessories"],
-      row["promotions_and_discounts_health_fitness"],
-      row["promotions_and_discounts_online_streaming_services"],
-      row["promotions_and_discounts_transport_and_travel_agencies"],
-      row["promotions_and_discounts_surprise_shops"],
+      calculate_promotions_and_discounts(row),
+      #row["promotions_and_discounts_food_and_drinks"],
+      #row["promotions_and_discounts_car"],
+      #row["promotions_and_discounts_beauty_and_wellness"],
+      #row["promotions_and_discounts_education_and_culture"],
+      #row["promotions_and_discounts_electronics"],
+      #row["promotions_and_discounts_events"],
+      #row["promotions_and_discounts_home_and_furniture"],
+      #row["promotions_and_discounts_jewelry"],
+      #row["promotions_and_discounts_toys_games"],
+      #row["promotions_and_discounts_marketplaces"],
+      #row["promotions_and_discounts_pets"],
+      #row["promotions_and_discounts_fashion_accessories"],
+      #row["promotions_and_discounts_health_fitness"],
+      #row["promotions_and_discounts_online_streaming_services"],
+      #row["promotions_and_discounts_transport_and_travel_agencies"],
+      #row["promotions_and_discounts_surprise_shops"],
       row["approved_days"],
       row["approved_money"],
       row["job_title"],
@@ -166,23 +168,10 @@ class Helper
   end
 
   def calculate_my_preference(row)
-    "
-      #{row["my_preference_foods_drinks"]};
-      #{row["my_preference_car"]};
-      #{row["my_preference_beauty_and_wellness"]};
-      #{row["my_preference_education_and_culture"]};
-      #{row["my_preference_electronics"]};
-      #{row["my_preference_events"]};
-      #{row["my_preference_home_and_furniture"]};
-      #{row["my_preference_jewelry"]};
-      #{row["my_preference_toys_and_games"]};
-      #{row["my_preference_marketplaces"]};
-      #{row["my_preference_pets"]};
-      #{row["my_preference_fashion_and_accessories"]};
-      #{row["my_preference_health_and_Fitness"]};
-      #{row["my_preference_online_streaming_services"]};
-      #{row["my_preference_transport_travel_agencies"]};
-      #{row["my_preference_surprise_shops"]};
-    "
+    "#{row["my_preference_foods_drinks"]};#{row["my_preference_car"]};#{row["my_preference_beauty_and_wellness"]};#{row["my_preference_education_and_culture"]};#{row["my_preference_electronics"]};#{row["my_preference_events"]};#{row["my_preference_home_and_furniture"]};#{row["my_preference_jewelry"]};#{row["my_preference_toys_and_games"]};#{row["my_preference_marketplaces"]};#{row["my_preference_pets"]};#{row["my_preference_fashion_and_accessories"]};#{row["my_preference_health_and_Fitness"]};#{row["my_preference_online_streaming_services"]};#{row["my_preference_transport_travel_agencies"]};#{row["my_preference_surprise_shops"]};"
+  end
+
+  def calculate_promotions_and_discounts(row)
+    "#{row["promotions_and_discounts_food_and_drinks"]};#{row["promotions_and_discounts_car"]};#{row["promotions_and_discounts_beauty_and_wellness"]};#{row["promotions_and_discounts_education_and_culture"]};#{row["promotions_and_discounts_electronics"]};#{row["promotions_and_discounts_events"]};#{row["promotions_and_discounts_home_and_furniture"]};#{row["promotions_and_discounts_jewelry"]};#{row["promotions_and_discounts_toys_games"]};#{row["promotions_and_discounts_marketplaces"]};#{row["promotions_and_discounts_pets"]};#{row["promotions_and_discounts_fashion_accessories"]};#{row["promotions_and_discounts_health_fitness"]};#{row["promotions_and_discounts_online_streaming_services"]};#{row["promotions_and_discounts_transport_and_travel_agencies"]};#{row["promotions_and_discounts_surprise_shops"]};"
   end
 end

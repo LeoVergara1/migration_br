@@ -16,7 +16,7 @@ begin
   puts "Database name: #{db_name}"
   puts "Password: #{pswd}"
 
-  rs = con.exec "SELECT * FROM users LIMIT 5"
+  rs = con.exec "SELECT * FROM users_filter LIMIT 10"
   string_list = "("
   CSV.open("migration.csv", "w") do |csv|
     csv << helper.headers
