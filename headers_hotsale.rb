@@ -61,6 +61,7 @@ class Helper
       #"promotions_and_discounts_surprise_shops",
       "approved_days",
       "approved_money",
+      "categorias_favoritas_hotsale",
       "job_title",
       "first_name",
       "last_name",
@@ -87,7 +88,7 @@ class Helper
       row["kcash_balance"],
       row["kcash_amount"],
       row["compliance_record_date"],
-      row["external_id"],
+      row["user_id_kpay"],
       row["risk_result"],
       row["reject_reason"],
       row["kcash_debt_amount"],
@@ -137,6 +138,7 @@ class Helper
       #row["promotions_and_discounts_surprise_shops"],
       row["approved_days"],
       row["approved_money"],
+      calculate_categorias_favoritas_hotsale(row),
       row["job_title"],
       row["first_name"],
       row["last_name"],
@@ -189,6 +191,20 @@ class Helper
 
   def calculate_promotions_and_discounts(row)
     "#{parser_promotions_text(row["promotions_and_discounts_food_and_drinks"], "Alimentos y Bebidas")}#{parser_promotions_text(row["promotions_and_discounts_car"], "Auto")}#{parser_promotions_text(row["promotions_and_discounts_beauty_and_wellness"], "Belleza y bienestar")}#{parser_promotions_text(row["promotions_and_discounts_education_and_culture"], "Educaión y cultura")}#{parser_promotions_text(row["promotions_and_discounts_electronics"], "Electrónica")}#{parser_promotions_text(row["promotions_and_discounts_events"], "Eventos")}#{parser_promotions_text(row["promotions_and_discounts_home_and_furniture"], "Hogar y Muebles")}#{parser_promotions_text(row["promotions_and_discounts_jewelry"], "Joyería")}#{parser_promotions_text(row["promotions_and_discounts_toys_games"], "Juguetes y juegos")}#{parser_promotions_text(row["promotions_and_discounts_marketplaces"], "Marketplaces")}#{parser_promotions_text(row["promotions_and_discounts_pets"], "Mascotas")}#{parser_promotions_text(row["promotions_and_discounts_fashion_accessories"], "Moda y Accesorios")}#{parser_promotions_text(row["promotions_and_discounts_health_fitness"], "Salud y estado físico")}#{parser_promotions_text(row["promotions_and_discounts_online_streaming_services"], "Servicios en línea y transmisión")}#{parser_promotions_text(row["promotions_and_discounts_transport_and_travel_agencies"], "Transporte y agencias de viaje")}#{parser_promotions_text(row["promotions_and_discounts_surprise_shops"], "Tiendas sorpresa")}".chop
+  end
+
+  def calculate_categorias_favoritas_hotsale(row)
+    parser_promotions_text(row["wants_promotios_beauty"], "Belleza") +
+    parser_promotions_text(row["wants_promotios_footwaer"], "Calzado") +
+    parser_promotions_text(row["wants_promotios_education"], "Educación") +
+    parser_promotions_text(row["wants_promotios_entertainment"], "Entretenimiento") +
+    parser_promotions_text(row["wants_promotios_home"], "Hogar") +
+    parser_promotions_text(row["wants_promotios_pets"], "Mascotas") +
+    parser_promotions_text(row["wants_promotios_accessories"], "Ropa y accesorios") +
+    parser_promotions_text(row["wants_promotios_health_fitness"], "Salud y cuidado físico") +
+    parser_promotions_text(row["wants_promotios_stores_walmart_lino"], "Tiendas en línea (Walmart y Linio)") +
+    parser_promotions_text(row["wants_promotios_travel_and_trasnport"], "Viajes y transporte") +
+    parser_promotions_text(row["wants_promotios_suprise"], "¡Sorpréndeme!")
   end
 
   def parser_promotions_text(value, text)

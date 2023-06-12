@@ -16,9 +16,9 @@ begin
   puts "Database name: #{db_name}"
   puts "Password: #{pswd}"
 
-  rs = con.exec "select count(*) from users_filter uf where user_id  between 0 and 300000000"
+  rs = con.exec "select * from users_mayo_22 uf;"
   string_list = "("
-  CSV.open("migration.csv", "w") do |csv|
+  CSV.open("migration_users_mayo_25.csv", "w") do |csv|
     csv << helper.headers
     map = rs.each_with_index do |row, index|
       csv << helper.map_row(row)
